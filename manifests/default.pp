@@ -8,5 +8,5 @@ class { 'apache':
   } 
   file { 'hello_world.html':
     path	=> '/var/www/html/index.html',
-	content	=> '<html><body><h1>Hello World!</h1></body></html>',
+	content	=> '<html><body><h1>Hello World</h1></body></html>',
 	}

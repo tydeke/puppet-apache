@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-  # Configure VM
+  # Configure VM 
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-18.04"
   config.vm.network "forwarded_port", guest: 8080, host: 8080
@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   
   # Install Puppet Agent
   # make if statement
-    wget https://apt.puppetlabs.com/puppet5-release-bionic.deb
+    wget -nc https://apt.puppetlabs.com/puppet5-release-bionic.deb
     sudo dpkg -i puppet5-release-bionic.deb
     sudo apt update
 	sudo apt-get install -y puppet-agent
