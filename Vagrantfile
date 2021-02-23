@@ -14,10 +14,12 @@ Vagrant.configure("2") do |config|
   
 # Install Puppet Agent
   config.vm.provision "shell", inline: <<-SHELL
-    wget -nc https://apt.puppetlabs.com/puppet5-release-bionic.deb
-    sudo dpkg -i puppet5-release-bionic.deb
-    sudo apt update
-	sudo apt-get install -y puppet-agent
+  if [ ! -f /opt/puppetlabs/bin/puppet ]; then
+        wget -nc https://apt.puppetlabs.com/puppet5-release-bionic.deb
+        sudo dpkg -i puppet5-release-bionic.deb
+        sudo apt update
+        sudo apt-get install -y puppet-agent
+    fi
   SHELL
   
 #Provisioning with Puppet modules
